@@ -24,18 +24,10 @@ def hedefDosyaSec ():
     curdir=os.getcwd()
     hedefdir=filedialog.askdirectory(parent=root, initialdir=curdir, title="Hedef Dosya Seç")
     return hedefdir
-def tasiDosyaSec ():
-    global tasidir
-    root= tkinter.Tk()
-    root.withdraw()
-    curdir=os.getcwd()
-    tasidir=filedialog.askdirectory(parent=root, initialdir=curdir, title="Taşınacak Dosya Seç")
-    return tasidir
 def listele ():
     #dosya seçme
     kaynakDosyaSec()
     hedefDosyaSec()
-    #tasiDosyaSec()
     #dosya toplama
     print("Kaynak Klasör Listeleniyor...")
     kaynakDosyalar=pathlib.Path(kaynakdir)
@@ -47,7 +39,7 @@ def listele ():
     klist=[]
     global hlist
     hlist=[]
-    #list hazırlama
+    #liste hazırlama
     for k in kayDosLis:
         if k.is_file():
             klist.append(k)
@@ -70,8 +62,4 @@ def listele ():
     time.sleep(5)            
                 
    
-     
-            #print(k.name,k.stat().st_size)
-
-
 listele()
